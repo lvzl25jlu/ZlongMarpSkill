@@ -1,0 +1,10 @@
+# Generated presentation exports
+dist/
+*.pdf
+*.pptx
+
+# Local and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zlong Marp"
+  short_description: "Create polished Marp research presentations"
+  default_prompt: "Use $zlong-marp to create a complete Marp presentation from my outline."
