@@ -20,7 +20,9 @@
 
 VS Code 工作区还必须处于受信任状态。未受信任的工作区会将该选项始终视为 `off`，导致模板中的 HTML 布局无法正常渲染。
 
-### 安装到 VS Code GitHub Copilot
+### 安装到 Agent
+
+#### GitHub Copilot（VS Code）
 
 项目级 Skill 可放在目标仓库的以下任一位置：
 
@@ -38,7 +40,7 @@ VS Code 工作区还必须处于受信任状态。未受信任的工作区会将
 
 随后在 Copilot Chat 的 Agent 模式中明确要求使用 `zlong-marp`。Skill 也可以在请求与其描述匹配时被自动选择；具体显式调用方式取决于当前 Copilot 版本。
 
-### 安装到 Codex
+#### Codex
 
 将完整的 `zlong-marp` 目录放在：
 
@@ -54,7 +56,7 @@ $CODEX_HOME/skills/zlong-marp
 
 重新启动 Codex 或新建任务后，可以通过 `$zlong-marp` 显式调用。
 
-### 安装到 Claude Code
+#### Claude Code
 
 项目级 Skill 放在目标仓库的：
 
@@ -105,7 +107,9 @@ The template relies heavily on HTML and CSS layouts. In VS Code settings, find `
 
 The VS Code workspace must also be trusted. In an untrusted workspace, this option is always treated as `off`, so the template's HTML layouts will not render correctly.
 
-### Install for GitHub Copilot in VS Code
+### Agent installation
+
+#### GitHub Copilot in VS Code
 
 Place a project Skill in either location within the target repository:
 
@@ -123,7 +127,7 @@ Place a personal Skill in either:
 
 Then explicitly ask Copilot Chat in Agent mode to use `zlong-marp`. Copilot may also select the Skill automatically when the request matches its description; the available explicit invocation syntax depends on the installed Copilot version.
 
-### Install for Codex
+#### Codex
 
 Place the complete `zlong-marp` directory in:
 
@@ -139,7 +143,7 @@ When `CODEX_HOME` is not configured separately, the usual location is:
 
 Restart Codex or start a new task, then invoke the Skill explicitly with `$zlong-marp`.
 
-### Install for Claude Code
+#### Claude Code
 
 Place a project Skill in:
 
@@ -172,7 +176,7 @@ Use $zlong-marp to turn the outline in slide.md into a complete Marp presentatio
 Edit slide.md in place. Do not export it yet.
 ```
 
-## Repository structure
+## 仓库结构 / Repository structure
 
 ```text
 ZlongMarpSkill/
