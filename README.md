@@ -4,7 +4,71 @@
 
 ## 中文
 
-`zlong-marp` 是一个用于生成科研汇报与组会演示文稿的 Agent Skill。它可以读取提示词、附件、独立大纲文件或已有 Marp Markdown 中的内容，生成完整的 Marp 源码，并应用内置的版式、配色、数学排版和可视化规范。
+`zlong-marp` 是一个以鲜明个人风格生成 Marp 幻灯片的 Agent Skill，主要面向科研汇报与组会演示。它可以读取提示词、附件、独立大纲文件或已有 Marp Markdown 中的内容，并应用内置的版式、语义配色、数学排版和可视化规范。
+
+### VS Code、Marp 插件与 HTML 设置
+
+推荐在 VS Code 中安装由 Marp Team 发布的 **Marp for VS Code** 插件，用于实时预览和导出。
+
+该模板大量使用 HTML 和 CSS 布局。请在 VS Code 设置中找到 `Markdown › Marp: HTML`，并将其设置为 `all`。对应的工作区设置为：
+
+```json
+{
+  "markdown.marp.html": "all"
+}
+```
+
+VS Code 工作区还必须处于受信任状态。未受信任的工作区会将该选项始终视为 `off`，导致模板中的 HTML 布局无法正常渲染。
+
+### 安装到 VS Code GitHub Copilot
+
+项目级 Skill 可放在目标仓库的以下任一位置：
+
+```text
+.github/skills/zlong-marp
+.agents/skills/zlong-marp
+```
+
+个人级 Skill 可放在：
+
+```text
+~/.copilot/skills/zlong-marp
+~/.agents/skills/zlong-marp
+```
+
+随后在 Copilot Chat 的 Agent 模式中明确要求使用 `zlong-marp`。Skill 也可以在请求与其描述匹配时被自动选择；具体显式调用方式取决于当前 Copilot 版本。
+
+### 安装到 Codex
+
+将完整的 `zlong-marp` 目录放在：
+
+```text
+$CODEX_HOME/skills/zlong-marp
+```
+
+如果没有单独设置 `CODEX_HOME`，通常使用：
+
+```text
+~/.codex/skills/zlong-marp
+```
+
+重新启动 Codex 或新建任务后，可以通过 `$zlong-marp` 显式调用。
+
+### 安装到 Claude Code
+
+项目级 Skill 放在目标仓库的：
+
+```text
+.claude/skills/zlong-marp
+```
+
+个人级 Skill 放在：
+
+```text
+~/.claude/skills/zlong-marp
+```
+
+Claude Code 可以根据描述自动选择该 Skill，也可以通过 `/zlong-marp` 显式调用。首次创建顶层 Skill 目录后，如果当前会话没有检测到它，请重新启动 Claude Code。
 
 ### 推荐工作流
 
@@ -23,42 +87,15 @@ Use $zlong-marp to turn the outline in slide.md into a complete Marp presentatio
 Edit slide.md in place. Do not export it yet.
 ```
 
-### 安装到 Codex
+## English
 
-将 `zlong-marp` 整个目录放入个人 Skill 目录：
+`zlong-marp` is an Agent Skill for generating Marp slides with a distinctive personal style, primarily for research presentations and group meetings. It can read content from a request, attachment, separate outline file, or existing Marp Markdown source and apply its bundled layout, semantic-color, mathematical-typesetting, and visualization conventions.
 
-```text
-$CODEX_HOME/skills/zlong-marp
-```
+### VS Code, Marp extension, and HTML setting
 
-如果没有单独设置 `CODEX_HOME`，通常使用：
+Install the **Marp for VS Code** extension published by the Marp Team for live preview and export.
 
-```text
-~/.codex/skills/zlong-marp
-```
-
-重新启动 Codex 或新建任务后，可以通过 `$zlong-marp` 显式调用。
-
-### 安装到 VS Code GitHub Copilot
-
-作为项目 Skill 使用时，将 `zlong-marp` 复制到目标仓库的以下位置之一：
-
-```text
-.github/skills/zlong-marp
-.agents/skills/zlong-marp
-```
-
-作为个人 Skill 使用时，将它复制到：
-
-```text
-~/.copilot/skills/zlong-marp
-```
-
-随后在 Copilot Chat 的 Agent 模式中明确要求使用 `zlong-marp`。可用的显式调用方式取决于当前 Copilot 版本。
-
-### VS Code、Marp 插件与 HTML 设置
-
-推荐在 VS Code 中安装由 Marp Team 发布的 **Marp for VS Code** 插件，用于实时预览和导出。该模板使用 HTML 和 CSS 布局，因此还需要在 VS Code 设置中找到 `Markdown › Marp: HTML`，并将其设置为 `all`。对应的工作区设置为：
+The template relies heavily on HTML and CSS layouts. In VS Code settings, find `Markdown › Marp: HTML` and set it to `all`. The equivalent workspace setting is:
 
 ```json
 {
@@ -66,11 +103,57 @@ $CODEX_HOME/skills/zlong-marp
 }
 ```
 
-VS Code 工作区还必须处于受信任状态；未受信任的工作区会将该选项始终视为 `off`，导致模板中的 HTML 布局无法正常渲染。
+The VS Code workspace must also be trusted. In an untrusted workspace, this option is always treated as `off`, so the template's HTML layouts will not render correctly.
 
-## English
+### Install for GitHub Copilot in VS Code
 
-`zlong-marp` is an Agent Skill for producing research presentations and group-meeting decks. It can read an outline from the request, an attachment, a separate outline file, or an existing Marp Markdown source, then generate a complete presentation using the bundled layout, color, mathematical-typesetting, and visualization conventions.
+Place a project Skill in either location within the target repository:
+
+```text
+.github/skills/zlong-marp
+.agents/skills/zlong-marp
+```
+
+Place a personal Skill in either:
+
+```text
+~/.copilot/skills/zlong-marp
+~/.agents/skills/zlong-marp
+```
+
+Then explicitly ask Copilot Chat in Agent mode to use `zlong-marp`. Copilot may also select the Skill automatically when the request matches its description; the available explicit invocation syntax depends on the installed Copilot version.
+
+### Install for Codex
+
+Place the complete `zlong-marp` directory in:
+
+```text
+$CODEX_HOME/skills/zlong-marp
+```
+
+When `CODEX_HOME` is not configured separately, the usual location is:
+
+```text
+~/.codex/skills/zlong-marp
+```
+
+Restart Codex or start a new task, then invoke the Skill explicitly with `$zlong-marp`.
+
+### Install for Claude Code
+
+Place a project Skill in:
+
+```text
+.claude/skills/zlong-marp
+```
+
+Place a personal Skill in:
+
+```text
+~/.claude/skills/zlong-marp
+```
+
+Claude Code can select the Skill automatically from its description or invoke it explicitly with `/zlong-marp`. If a newly created top-level Skill directory is not detected in the current session, restart Claude Code.
 
 ### Recommended workflow
 
@@ -88,51 +171,6 @@ Example prompt:
 Use $zlong-marp to turn the outline in slide.md into a complete Marp presentation.
 Edit slide.md in place. Do not export it yet.
 ```
-
-### Install for Codex
-
-Place the complete `zlong-marp` directory in your personal Skill directory:
-
-```text
-$CODEX_HOME/skills/zlong-marp
-```
-
-When `CODEX_HOME` is not configured separately, the usual location is:
-
-```text
-~/.codex/skills/zlong-marp
-```
-
-Restart Codex or start a new task, then invoke the Skill explicitly with `$zlong-marp`.
-
-### Install for GitHub Copilot in VS Code
-
-For a project Skill, copy `zlong-marp` to either location in the target repository:
-
-```text
-.github/skills/zlong-marp
-.agents/skills/zlong-marp
-```
-
-For a personal Skill, copy it to:
-
-```text
-~/.copilot/skills/zlong-marp
-```
-
-Then explicitly ask Copilot Chat in Agent mode to use `zlong-marp`. The available explicit invocation syntax depends on the installed Copilot version.
-
-### VS Code, Marp extension, and HTML setting
-
-Install the **Marp for VS Code** extension published by the Marp Team for live preview and export. This template uses HTML and CSS layouts, so also find `Markdown › Marp: HTML` in VS Code settings and set it to `all`. The equivalent workspace setting is:
-
-```json
-{
-  "markdown.marp.html": "all"
-}
-```
-
-The VS Code workspace must also be trusted. In an untrusted workspace, this option is always treated as `off`, so the template's HTML layouts will not render correctly.
 
 ## Repository structure
 
